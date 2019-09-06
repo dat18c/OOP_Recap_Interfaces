@@ -1,11 +1,13 @@
 package com.kea.ooprecapinterfaces;
 
-public class Person {
+public class Person implements Comparable<Person>
+{
     String cpr;
     String name;
     int height;
 
-    public Person(String cpr, String name, int height) {
+    public Person(String cpr, String name, int height)
+    {
         this.cpr = cpr;
         this.name = name;
         this.height = height;
@@ -40,4 +42,14 @@ public class Person {
         return "\nCpr: " + cpr + " Navn: " + name + " Højde: " + height;
 
     }
+
+    @Override
+    public int compareTo(Person person)
+    {
+        //returner negativ hvis this.height er mindre
+        //          0 hvis lig med
+        //          positiv hvis this.height er større
+        return this.height - person.height;
+    }
+
 }
